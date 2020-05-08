@@ -1,4 +1,4 @@
-﻿namespace CustomMaxSpeed
+namespace CustomMaxSpeed
 {
     using JetBrains.Annotations;
 
@@ -8,12 +8,12 @@
     [ModIconUrl("https://raw.githubusercontent.com/janniksam/RaftMod.CustomMaxRaftSpeed/master/banner.png")]
     [ModWallpaperUrl("https://raw.githubusercontent.com/janniksam/RaftMod.CustomMaxRaftSpeed/master/banner.png")]
     [ModVersionCheckUrl("https://www.raftmodding.com/api/v1/mods/custommaxraftspeed/version.txt")]
-    [ModVersion("1.0")]
+    [ModVersion("1.01")]
     [RaftVersion("Update 11 (4677160)")]
     [ModIsPermanent(false)]
     public class CustomMaxRaftSpeed : Mod
     {
-        private const string ModNamePrefix = "<color=#42a7f5>Filtered</color><color=#FF0000>Nets</color>";
+        private const string ModNamePrefix = "<color=#42a7f5>CustomMax</color><color=#FF0000>RaftSpeed</color>";
         private const float DefaultMaxSpeed = 1.5f;
         private const float DefaultWaterDriftSpeed = 1.5f;
         private const string MaxSpeedArgumentIsOutOfRangeMessage = "maxspeed: Requires a factor between 1 and 20. (x times of the default speed)\n" +
@@ -21,7 +21,7 @@
 
         private float m_maxSpeedFactor = DefaultMaxSpeed;
         private float m_waterDriftSpeedFactor = DefaultWaterDriftSpeed;
-        
+
         [UsedImplicitly]
         public void Start()
         {
@@ -93,10 +93,10 @@
                 RConsole.Log(MaxSpeedArgumentIsOutOfRangeMessage);
                 return;
             }
-            
+
             m_maxSpeedFactor = maxSpeedFloat;
             m_waterDriftSpeedFactor = maxSpeedFloat;
-            RConsole.Log(string.Format("{0}: Set max speed factor set to {1}", ModNamePrefix, maxSpeedFloat));
+            RConsole.Log(string.Format("{0}: Max speed factor was set to {1}", ModNamePrefix, maxSpeedFloat));
         }
     }
 }
